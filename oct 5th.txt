@@ -1,0 +1,67 @@
+date:oct 5th,2021
+ discussed topics
+swing and java fx - These are used for developing desktop applications.
+Web Applications - servlets,jsp,jsf
+mobile applications - java, kotlin
+
+CLASS INSTANTIATION 
+object 
+class 
+New keyword
+	Syntax for Instantiation
+		ClassName objName = new ClassName();
+method 
+constructor 
+types of constructor - parameterized constructor,default constructor
+coding standards
+void
+instance variable
+static keyword
+JVM memory- stack and heap
+garbage collector
+outofheapmemory error
+
+TODAY ASSIGNMENT
+
+1)Responsibility of develepor to handle the outofheapmemory error?
+	we have to increase heap memory but when the application is running then we have to stop the server in the maintaince period and then increase the 		memory.
+
+2)string pool - String pool is nothing but a storage area in Java heap where string literals stores. 
+	It is also known as String Intern Pool or String Constant Pool.
+	By default, it is empty and privately maintained by the Java String class. 
+	Whenever we create a string the string object occupies some space in the heap memory
+	The JVM performs some steps during the initialization of string literals that increase the performance and decrease the 					memory load
+	When we create a string literal, the JVM first check that literal in the String pool. 
+	If the literal is already present in the pool, it returns a reference to the pooled instance. 
+	If not present in the pool, a new String object takes place in the String pool.
+				
+3)Memory Leakage - the memory leak is a situation when the garbage collector does not recognize the unused objects 
+		and they remain in the memory indefinitely that reduces the amount of memory allocated to the application. 
+		Because the unused objects still being referenced that may lead to OutOfMemoryError. 
+		It also affects the reliability of the application.
+4)How to avoid memory leakage - there are 2 ways
+		1) Quick fix: Eclipse Memory Leak warning/errors.
+		eclipse will throw a warning at you if its reference is destroyed but the object is not closed. 
+		However, the leak-detection isn't always enabled in eclipse projects. You might have to turn them on first.
+		2) Manually disable & enable parts of your code and observe memory usage of your JVM using a JVM tool 							like VisualVM.
+					
+5)java memory model - The Metaspace(5) is used to store the metadata about your loaded classes in the JVM. 
+		 Prior to Java 8, the structure of the memory was a bit different. 
+		The metaspace is called actually the PermGen		
+						
+6)what changes done in java8 for memory management
+	Oracle has completely gotten rid of ‘PermGen’ and replaced it with Metaspace.
+	PermGen is the memory area in Heap that is used by the JVM to store class and method objects
+	 PermGen space is configured by the Java command line option -XX:MaxPermSize
+	 
+	 The key difference between PermGen and Metaspace is this: 
+	 while PermGen is part of Java Heap (Maximum size configured by -Xmx option), Metaspace is NOT part of Heap. 
+	 Rather Metaspace is part of Native Memory (process memory).
+	 
+7)root causes for outofmemory error
+	OutOfMemoryError is a runtime error in Java which occurs when the Java Virtual Machine (JVM) is unable to allocate 
+	an object due to insufficient space in the Java heap. ... 
+	This error can also be thrown when the native memory is insufficient to support the loading of a Java class
+
+
+
